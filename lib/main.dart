@@ -1,22 +1,24 @@
 import 'package:cooking_book_app_frontend/screen/loginScreen.dart';
 import 'package:flutter/material.dart';
-import 'package:cooking_book_app_frontend/screen/loginScreen.dart';
+import 'screen/loginScreen.dart';
+import 'screen/registerScreen.dart';
+import 'screen/homeScreen.dart';
+import 'screen/homeScreen.dart';
+import 'screen/addRecipe.dart';
 
 void main() {
-  runApp(CookBookApp());
+  runApp(const MyApp());
 }
 
-class CookBookApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Cook Books',
+      title: 'Cook Books Register',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        fontFamily: 'Sans',
-        scaffoldBackgroundColor: Color(0xF5F1E9F0), // warna background sesuai desain
-      ),
-      home: loginScreen()
+      home: const LoginScreen(),
     );
   }
 }

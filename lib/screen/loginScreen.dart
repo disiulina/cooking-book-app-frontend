@@ -1,82 +1,157 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class loginScreen extends StatelessWidget {
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(24.0),
-            child: Container(
-              padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
-                boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 10)],
+      backgroundColor: Colors.black87,
+      body: Center(
+        child: Container(
+          width: 350,
+          padding: const EdgeInsets.all(30),
+          decoration: BoxDecoration(
+            color: const Color(0xFFF4EFE6), // background krem
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Icon(Icons.menu_book, size: 50, color: Colors.black),
+              const SizedBox(height: 5),
+              const Text("Cook\nBooks",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 14,
+                  color: Colors.black,
+                ),
               ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+              const SizedBox(height: 30),
+
+              Text(
+                "Welcome Back",
+                style: GoogleFonts.openSans(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                "Login to your account",
+                style: GoogleFonts.openSans(
+                  fontSize: 14,
+                  color: Colors.black87,
+                ),
+              ),
+              const SizedBox(height: 20),
+
+              // Email TextField
+              TextField(
+                decoration: InputDecoration(
+                  labelText: "Email",
+                  filled: true,
+                  fillColor: Colors.grey[300],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16),
+
+              // Password TextField
+              TextField(
+                obscureText: true,
+                decoration: InputDecoration(
+                  labelText: "Password",
+                  filled: true,
+                  fillColor: Colors.grey[300],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                    borderSide: BorderSide.none,
+                  ),
+                ),
+              ),
+
+              // Forgot Password
+              Align(
+                alignment: Alignment.centerRight,
+                child: TextButton(
+                  onPressed: () {},
+                  child: const Text(
+                    "Forgot Password",
+                    style: TextStyle(color: Colors.blue, fontSize: 12),
+                  ),
+                ),
+              ),
+
+              // Login Button
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30),
+                    ),
+                  ),
+                  onPressed: () {},
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 14),
+                    child: Text("Login"),
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 15),
+
+              // Divider with text
+              Row(
+                children: const [
+                  Expanded(child: Divider()),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 8.0),
+                    child: Text("Or login with"),
+                  ),
+                  Expanded(child: Divider()),
+                ],
+              ),
+
+              const SizedBox(height: 10),
+
+              // Google Sign-In Button (icon only)
+              IconButton(
+                onPressed: () {},
+                icon: Image.network(
+                  'https://upload.wikimedia.org/wikipedia/commons/4/4f/Google_%22G%22_Logo.svg',
+                  width: 30,
+                ),
+              ),
+
+              const SizedBox(height: 10),
+
+              // Sign up prompt
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                   // ganti dengan logo kamu
-                  SizedBox(height: 10),
-                  Text(
-                    'LOG IN',
-                    style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'Get new recipes to try',
-                    style: TextStyle(color: Colors.grey[600]),
-                  ),
-                  SizedBox(height: 24),
-                  TextField(
-                    decoration: InputDecoration(
-                      labelText: 'Email',
-                      hintText: 'Admin123',
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  TextField(
-                    obscureText: true,
-                    decoration: InputDecoration(
-                      labelText: 'Password',
-                      hintText: 'admin123',
-                      border: OutlineInputBorder(),
-                    ),
-                  ),
-                  SizedBox(height: 16),
-                  ElevatedButton(
-                    onPressed: () {
-                      // logika login di sini
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFFD7655A), // warna merah tombol
-                    ),
-                    child: Text('LOG IN'),
-                  ),
-                  SizedBox(height: 12),
-                  Text.rich(
-                    TextSpan(
-                      text: 'Belum punya akun? ',
-                      children: [
-                        TextSpan(
-                          text: 'Daftar',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.black,
-                          ),
-                        ),
-                      ],
+                  const Text("Don’t have account? "),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      "Sign in",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
                     ),
                   ),
                 ],
-              ),
-            ),
+              )
+            ],
           ),
         ),
       ),
